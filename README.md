@@ -8,7 +8,7 @@
 ```text
 handl-packages/command/   the .hnl package
 scripts/hnl-gate.sh       the gate
-ci.sh                     bupha entry
+workflows/gate.yaml                     bupha entry (handl-gates)
 ```
 
 ## Gate
