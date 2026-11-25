@@ -1,3 +1,30 @@
+# lib-command
+
+`command` — user-space command registration and invocation algebra: a
+`Command` is an operation executed by the active command handler.
+
+## Layout
+
+| path | role |
+| --- | --- |
+| `handl-packages/command/index.hnl` | the `.hnl` package — `pkg.hnl` `entry` points here explicitly |
+| `pkg.hnl` | manifest — `modules: ["command"]` |
+| `scripts/hnl-gate.sh` | `.hnl` gate (`SRC_DIR` env selects the source dir) |
+| `workflows/gate.yaml` | CI — shared `handl-gates` campaign (bupha/peregrin) |
+
+## Contract
+
+- Single-module package living in the `handl-packages/` layout (not
+  `src/`); there is no Rust crate.
+- Commands are data/algebra executed by a pluggable handler — keep the
+  module effect-free where the contract allows.
+
+## Verification
+
+```bash
+HNL=../host-cli/target/debug/hnl scripts/hnl-gate.sh
+```
+
 <!-- myco:agent-awareness -->
 
 ## Agent awareness
